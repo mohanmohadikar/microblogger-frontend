@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Authentication from './components/authentication/authentication';
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
   return (
     <div>
       <BrowserRouter>
