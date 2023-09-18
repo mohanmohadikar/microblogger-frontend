@@ -1,51 +1,39 @@
-import HomeIcon from '@mui/icons-material/Home';
-import ExploreIcon from '@mui/icons-material/Explore';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MessageIcon from '@mui/icons-material/Message';
-import ListAltIcon from '@mui/icons-material/ListAlt';
-import GroupIcon from '@mui/icons-material/Group';
-import VerifiedIcon from '@mui/icons-material/Verified';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import PendingIcon from '@mui/icons-material/Pending';
-
-const iconStyle = { height: '28px', width: '28px' };
-
 export const navigationItems = [
   {
     title: 'Home',
-    icon: <HomeIcon style={iconStyle} />,
+    icon: 'home-icon',
     path: '/home'
   },
   {
     title: 'Explore',
-    icon: <ExploreIcon style={iconStyle} />,
+    icon: 'explore-icon',
     path: '/explore'
   },
   {
     title: 'Notifications',
-    icon: <NotificationsIcon style={iconStyle} />,
+    icon: 'notifications-icon',
     path: '/notifications'
   },
   {
     title: 'Messages',
-    icon: <MessageIcon style={iconStyle} />,
+    icon: 'messages-icon',
     path: '/messages'
   },
-  { title: 'Lists', icon: <ListAltIcon style={iconStyle} />, path: '/lists' },
+  { title: 'Lists', icon: 'lists-icon', path: '/lists' },
   {
     title: 'Communities',
-    icon: <GroupIcon style={iconStyle} />,
+    icon: 'communities-icon',
     path: '/communities'
   },
   {
     title: 'Verified',
-    icon: <VerifiedIcon style={iconStyle} />,
+    icon: 'app-icon',
     path: '/verified'
   },
   {
     title: 'Profile',
-    icon: <AccountCircleIcon style={iconStyle} />,
+    icon: 'profile-icon',
     path: '/profile '
   },
-  { title: 'More', icon: <PendingIcon style={iconStyle} />, path: '/more' }
+  { title: 'More', icon: 'more-icon', path: '/more' }
 ];

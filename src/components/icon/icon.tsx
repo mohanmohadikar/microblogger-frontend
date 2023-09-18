@@ -47,10 +47,6 @@ const Icon = (props: iconProps) => {
         'pathColors'
       );
 
-      console.log('====================================');
-      console.log({ viewHeight, viewWidth });
-      console.log('====================================');
-
       return (
         <svg
           width={viewWidth}
