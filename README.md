@@ -1,3 +1,6 @@
+# microblogger-frontend
+Microblogging app using which user can read, post, like & repost micro-blogs, which may contain photos, videos, links, emojis and text. It is inspired from [X.com](https://x.com)
+
 # Important Links
 Backend: [microblogger-backend](https://github.com/mohanmohadikar/microblogger-backend)
 
