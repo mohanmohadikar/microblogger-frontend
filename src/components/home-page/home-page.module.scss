@@ -8,14 +8,16 @@
 
   .left_part {
     height: 100%;
+    overflow-y: auto;
   }
   .middle_part {
     height: 100%;
-    border-left: 1px solid $color_gray1;
-    border-right: 1px solid $color_gray1;
+    overflow-y: auto;
+    padding: 0px 16px;
   }
   .right_part {
     height: 100%;
+    overflow-y: auto;
   }
 }
 

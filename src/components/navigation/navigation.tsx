@@ -1,14 +1,20 @@
 import { useState } from 'react';
 import {
+  NAV_COMMUNITIES,
   NAV_EXPLORE,
   NAV_HOME,
-  NAV_NOTIFICATIONS
-} from '../constants/label-contants';
+  NAV_LISTS,
+  NAV_MESSAGES,
+  NAV_MORE,
+  NAV_NOTIFICATIONS,
+  NAV_PROFILE,
+  NAV_VERIFIED
+} from '../../constants/label-contants';
 import Icon from '../icon/icon';
 import styles from './navigation.module.scss';
 
 const Navigation = () => {
-  const [selectedTab, setSelectedTab] = useState('');
+  const [selectedTab, setSelectedTab] = useState(NAV_HOME);
   return (
     <div className={styles.navigation_container}>
       <div className={styles.navigation_item}>
@@ -20,6 +26,9 @@ const Navigation = () => {
           selectedTab === NAV_HOME ? styles.selected : ''
         }`}
         title={NAV_HOME}
+        onClick={() => {
+          setSelectedTab(NAV_HOME);
+        }}
       >
         <Icon name={'home-icon'} size={24} />
         <div className={styles.navigation_item_title}>{NAV_HOME}</div>
@@ -27,88 +36,106 @@ const Navigation = () => {
 
       <div
         className={`${styles.navigation_item} ${
-          navigationItemIdx === 2 ? styles.selected : ''
+          selectedTab === NAV_EXPLORE ? styles.selected : ''
         }`}
         title={NAV_EXPLORE}
+        onClick={() => {
+          setSelectedTab(NAV_EXPLORE);
+        }}
       >
-        <Icon name={''} size={24} />
+        <Icon name={'explore-icon'} size={24} />
         <div className={styles.navigation_item_title}>{NAV_EXPLORE}</div>
       </div>
 
       <div
         className={`${styles.navigation_item} ${
-          navigationItemIdx === 2 ? styles.selected : ''
+          selectedTab === NAV_NOTIFICATIONS ? styles.selected : ''
         }`}
         title={NAV_NOTIFICATIONS}
+        onClick={() => {
+          setSelectedTab(NAV_NOTIFICATIONS);
+        }}
       >
-        <Icon name={navigationItem?.icon} size={24} />
+        <Icon name={'notifications-icon'} size={24} />
         <div className={styles.navigation_item_title}>{NAV_NOTIFICATIONS}</div>
       </div>
 
       <div
         className={`${styles.navigation_item} ${
-          navigationItemIdx === 2 ? styles.selected : ''
+          selectedTab === NAV_MESSAGES ? styles.selected : ''
         }`}
+        title={NAV_MESSAGES}
+        onClick={() => {
+          setSelectedTab(NAV_MESSAGES);
+        }}
       >
-        <Icon name={navigationItem?.icon} size={24} />
-        <div className={styles.navigation_item_title}>
-          {navigationItem.title}
-        </div>
+        <Icon name={'messages-icon'} size={24} />
+        <div className={styles.navigation_item_title}>{NAV_MESSAGES}</div>
       </div>
 
       <div
         className={`${styles.navigation_item} ${
-          navigationItemIdx === 2 ? styles.selected : ''
+          selectedTab === NAV_LISTS ? styles.selected : ''
         }`}
+        title={NAV_LISTS}
+        onClick={() => {
+          setSelectedTab(NAV_LISTS);
+        }}
       >
-        <Icon name={navigationItem?.icon} size={24} />
-        <div className={styles.navigation_item_title}>
-          {navigationItem.title}
-        </div>
+        <Icon name={'lists-icon'} size={24} />
+        <div className={styles.navigation_item_title}>{NAV_LISTS}</div>
       </div>
 
       <div
         className={`${styles.navigation_item} ${
-          navigationItemIdx === 2 ? styles.selected : ''
+          selectedTab === NAV_COMMUNITIES ? styles.selected : ''
         }`}
+        title={NAV_COMMUNITIES}
+        onClick={() => {
+          setSelectedTab(NAV_COMMUNITIES);
+        }}
       >
-        <Icon name={navigationItem?.icon} size={24} />
-        <div className={styles.navigation_item_title}>
-          {navigationItem.title}
-        </div>
+        <Icon name={'communities-icon'} size={24} />
+        <div className={styles.navigation_item_title}>{NAV_COMMUNITIES}</div>
       </div>
 
       <div
         className={`${styles.navigation_item} ${
-          navigationItemIdx === 2 ? styles.selected : ''
+          selectedTab === NAV_VERIFIED ? styles.selected : ''
         }`}
+        title={NAV_VERIFIED}
+        onClick={() => {
+          setSelectedTab(NAV_VERIFIED);
+        }}
       >
-        <Icon name={navigationItem?.icon} size={24} />
-        <div className={styles.navigation_item_title}>
-          {navigationItem.title}
-        </div>
+        <Icon name={'app-icon'} size={24} />
+        <div className={styles.navigation_item_title}>{NAV_VERIFIED}</div>
       </div>
 
       <div
         className={`${styles.navigation_item} ${
-          navigationItemIdx === 2 ? styles.selected : ''
+          selectedTab === NAV_PROFILE ? styles.selected : ''
         }`}
+        title={NAV_PROFILE}
+        onClick={() => {
+          setSelectedTab(NAV_PROFILE);
+        }}
       >
-        <Icon name={navigationItem?.icon} size={24} />
-        <div className={styles.navigation_item_title}>
-          {navigationItem.title}
-        </div>
+        <Icon name={'profile-icon'} size={24} />
+        <div className={styles.navigation_item_title}>{NAV_PROFILE}</div>
       </div>
 
       <div
         className={`${styles.navigation_item} ${
-          navigationItemIdx === 2 ? styles.selected : ''
+          selectedTab === NAV_MORE ? styles.selected : ''
         }`}
+        title={NAV_MORE}
+        onClick={() => {
+          setSelectedTab(NAV_MORE);
+        }}
       >
-        <Icon name={navigationItem?.icon} size={24} />
-        <div className={styles.navigation_item_title}>
-          {navigationItem.title}
-        </div>
+        <Icon name={'more-icon'} size={24} />
+        <div className={styles.navigation_item_title}>{NAV_MORE}</div>
       </div>
     </div>
   );

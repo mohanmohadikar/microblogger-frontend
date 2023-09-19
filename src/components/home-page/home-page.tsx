@@ -1,4 +1,5 @@
 import Navigation from '../navigation/navigation';
+import Posts from '../posts/posts';
 import styles from './home-page.module.scss';
 
 const HomePage = () => {
@@ -7,7 +8,9 @@ const HomePage = () => {
       <div className={styles.left_part}>
         <Navigation />
       </div>
-      <div className={styles.middle_part}>middle part</div>
+      <div className={styles.middle_part}>
+        <Posts />
+      </div>
       <div className={styles.right_part}>right part</div>
     </div>
   );
