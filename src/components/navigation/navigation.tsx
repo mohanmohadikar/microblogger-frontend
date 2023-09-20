@@ -10,8 +10,10 @@ import {
   NAV_PROFILE,
   NAV_VERIFIED
 } from '../../constants/label-contants';
-import Icon from '../icon/icon';
+import Icon from '../common-components/icon/icon';
 import styles from './navigation.module.scss';
+import CustomButton from '../common-components/custom-button/custom-button';
+import { CustomButtonSize } from '../../constants/data-contants';
 
 const Navigation = () => {
   const [selectedTab, setSelectedTab] = useState(NAV_HOME);
@@ -137,6 +139,11 @@ const Navigation = () => {
         <Icon name={'more-icon'} size={24} />
         <div className={styles.navigation_item_title}>{NAV_MORE}</div>
       </div>
+      <CustomButton
+        text={'Post'}
+        size={CustomButtonSize.large}
+        occupyWidth={true}
+      />
     </div>
   );
 };

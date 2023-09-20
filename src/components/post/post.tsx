@@ -1,5 +1,5 @@
-import Icon from '../icon/icon';
-import ProfilePicture from '../profile-picture/profile-picture';
+import Icon from '../common-components/icon/icon';
+import ProfilePicture from '../common-components/profile-picture/profile-picture';
 import styles from './post.module.scss';
 
 const Post = () => {
@@ -17,15 +17,15 @@ const Post = () => {
               </div>
               <div className={styles.details_text}>Jan 31, 2020</div>
             </div>
-            <Icon name={'kebab-menu-icon'} size={24} />
+            <Icon name={'kebab-menu-icon'} size={20} />
           </div>
           <div className={styles.content_middle_section}></div>
           <div className={styles.content_bottom_section}>
-            <Icon name={'reply-icon'} size={24} />
-            <Icon name={'repost-icon'} size={24} />
-            <Icon name={'like-icon'} size={24} />
-            <Icon name={'view-icon'} size={24} />
-            <Icon name={'share-icon'} size={24} />
+            <Icon name={'reply-icon'} size={20} />
+            <Icon name={'repost-icon'} size={20} />
+            <Icon name={'like-icon'} size={20} />
+            <Icon name={'view-icon'} size={20} />
+            <Icon name={'share-icon'} size={20} />
           </div>
         </div>
       </div>

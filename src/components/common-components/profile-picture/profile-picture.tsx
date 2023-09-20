@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styles from './profile-picture.module.scss';
-import defaultImageX96 from '../../assets/default_profile_x96.png';
+import defaultImageX96 from '../../../assets/default_profile_x96.png';
 
 type ProfilePicturePropType = {
   size?: 'sm' | 'lg';
