@@ -7,9 +7,11 @@
   font-weight: 700;
   color: $color_white;
   cursor: pointer;
+  width: fit-content;
 
   &.fit_parent {
     width: 100%;
+    padding: 0px !important;
   }
 
   &.background_primary {
@@ -24,11 +26,13 @@
     height: 35px;
     font-size: 18px;
     border-radius: 35px;
+    padding: 0px 16px;
   }
 
   &.btn_large {
     height: 50px;
     font-size: 22px;
     border-radius: 50px;
+    padding: 0px 32px;
   }
 }
