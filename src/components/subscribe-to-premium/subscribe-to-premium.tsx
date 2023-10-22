@@ -7,7 +7,7 @@ import {
   SUBSCRIBE_TO_PREMIUM_TITLE
 } from '../../constants/label-contants';
 import CustomButton from '../common-components/custom-button/custom-button';
-import styles from './subsribe-to-premium.module.scss';
+import styles from './subscribe-to-premium.module.scss';
 
 const SubscribeToPremium = () => {
   return (

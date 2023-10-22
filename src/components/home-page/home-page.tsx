@@ -1,6 +1,6 @@
 import Navigation from '../navigation/navigation';
 import Posts from '../posts/posts';
-import SubscribeToPremium from '../subsribe-to-premium/subsribe-to-premium';
+import SubscribeToPremium from '../subscribe-to-premium/subscribe-to-premium';
 import styles from './home-page.module.scss';
 
 const HomePage = () => {
