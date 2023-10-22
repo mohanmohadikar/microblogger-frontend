@@ -32,7 +32,10 @@ const Navigation = () => {
           setSelectedTab(NAV_HOME);
         }}
       >
-        <Icon name={'home-icon'} size={24} />
+        <Icon
+          name={selectedTab === NAV_HOME ? 'home-icon-filled' : 'home-icon'}
+          size={24}
+        />
         <div className={styles.navigation_item_title}>{NAV_HOME}</div>
       </div>
 
@@ -45,7 +48,12 @@ const Navigation = () => {
           setSelectedTab(NAV_EXPLORE);
         }}
       >
-        <Icon name={'explore-icon'} size={24} />
+        <Icon
+          name={
+            selectedTab === NAV_EXPLORE ? 'explore-icon-filled' : 'explore-icon'
+          }
+          size={24}
+        />
         <div className={styles.navigation_item_title}>{NAV_EXPLORE}</div>
       </div>
 
@@ -58,7 +66,14 @@ const Navigation = () => {
           setSelectedTab(NAV_NOTIFICATIONS);
         }}
       >
-        <Icon name={'notifications-icon'} size={24} />
+        <Icon
+          name={
+            selectedTab === NAV_NOTIFICATIONS
+              ? 'notifications-icon-filled'
+              : 'notifications-icon'
+          }
+          size={24}
+        />
         <div className={styles.navigation_item_title}>{NAV_NOTIFICATIONS}</div>
       </div>
 
@@ -71,7 +86,14 @@ const Navigation = () => {
           setSelectedTab(NAV_MESSAGES);
         }}
       >
-        <Icon name={'messages-icon'} size={24} />
+        <Icon
+          name={
+            selectedTab === NAV_MESSAGES
+              ? 'messages-icon-filled'
+              : 'messages-icon'
+          }
+          size={24}
+        />
         <div className={styles.navigation_item_title}>{NAV_MESSAGES}</div>
       </div>
 
@@ -84,7 +106,10 @@ const Navigation = () => {
           setSelectedTab(NAV_LISTS);
         }}
       >
-        <Icon name={'lists-icon'} size={24} />
+        <Icon
+          name={selectedTab === NAV_LISTS ? 'lists-icon-filled' : 'lists-icon'}
+          size={24}
+        />
         <div className={styles.navigation_item_title}>{NAV_LISTS}</div>
       </div>
 
@@ -97,7 +122,14 @@ const Navigation = () => {
           setSelectedTab(NAV_COMMUNITIES);
         }}
       >
-        <Icon name={'communities-icon'} size={24} />
+        <Icon
+          name={
+            selectedTab === NAV_COMMUNITIES
+              ? 'communities-icon-filled'
+              : 'communities-icon'
+          }
+          size={24}
+        />
         <div className={styles.navigation_item_title}>{NAV_COMMUNITIES}</div>
       </div>
 
@@ -123,7 +155,12 @@ const Navigation = () => {
           setSelectedTab(NAV_PROFILE);
         }}
       >
-        <Icon name={'profile-icon'} size={24} />
+        <Icon
+          name={
+            selectedTab === NAV_PROFILE ? 'profile-icon-filled' : 'profile-icon'
+          }
+          size={24}
+        />
         <div className={styles.navigation_item_title}>{NAV_PROFILE}</div>
       </div>
 
