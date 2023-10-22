@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import {
   CustomButtonColor,
   CustomButtonSize
@@ -6,13 +6,13 @@ import {
 import styles from './custom-button.module.scss';
 
 type CustomButtonPropType = {
-  text?: string;
+  content?: ReactNode;
   buttonColor?: CustomButtonColor;
   size?: CustomButtonSize;
   occupyWidth?: boolean;
 };
 const CustomButton: FC<CustomButtonPropType> = ({
-  text = '',
+  content = <></>,
   buttonColor = CustomButtonColor.primary,
   size = CustomButtonSize.small,
   occupyWidth = false
@@ -27,7 +27,7 @@ const CustomButton: FC<CustomButtonPropType> = ({
         size === CustomButtonSize.small ? styles.btn_small : styles.btn_large
       }`}
     >
-      {text}
+      {content}
     </div>
   );
 };

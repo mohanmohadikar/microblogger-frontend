@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { CustomButtonSize } from '../../constants/data-contants';
 import {
   NAV_COMMUNITIES,
   NAV_EXPLORE,
@@ -10,15 +11,38 @@ import {
   NAV_PROFILE,
   NAV_VERIFIED
 } from '../../constants/label-contants';
+import CustomButton from '../common-components/custom-button/custom-button';
 import Icon from '../common-components/icon/icon';
 import styles from './navigation.module.scss';
-import CustomButton from '../common-components/custom-button/custom-button';
-import { CustomButtonSize } from '../../constants/data-contants';
 
 const Navigation = () => {
+  const navRef = useRef<HTMLDivElement | null>(null);
   const [selectedTab, setSelectedTab] = useState(NAV_HOME);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [componentWidth, setComponentWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (navRef?.current) {
+      setComponentWidth(navRef?.current?.clientWidth);
+      console.log('====================================');
+      console.log({ width: navRef?.current?.clientWidth });
+      console.log('====================================');
+    }
+  }, [screenWidth]);
+
   return (
-    <div className={styles.navigation_container}>
+    <div ref={navRef} className={styles.navigation_container}>
       <div className={styles.navigation_item}>
         <Icon name="app-icon" size={30} />
       </div>
@@ -176,11 +200,24 @@ const Navigation = () => {
         <Icon name={'more-icon'} size={24} />
         <div className={styles.navigation_item_title}>{NAV_MORE}</div>
       </div>
-      <CustomButton
-        text={'Post'}
-        size={CustomButtonSize.large}
-        occupyWidth={true}
-      />
+      <div
+        style={{
+          width: componentWidth > 160 ? '100%' : '56px',
+          marginTop: '12px'
+        }}
+      >
+        <CustomButton
+          content={
+            componentWidth > 160 ? (
+              'Post'
+            ) : (
+              <Icon name={'feather-icon'} size={24} />
+            )
+          }
+          size={CustomButtonSize.large}
+          occupyWidth={true}
+        />
+      </div>
     </div>
   );
 };

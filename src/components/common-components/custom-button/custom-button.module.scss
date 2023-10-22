@@ -1,9 +1,9 @@
 @import '../../../styles/all.scss';
 
 .container {
-  display: grid;
+  display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   font-weight: 700;
   color: $color_white;
   cursor: pointer;

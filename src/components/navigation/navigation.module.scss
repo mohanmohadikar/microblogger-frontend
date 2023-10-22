@@ -66,7 +66,17 @@
 }
 
 // Desktops, large screens – 1025px — 1200px
-@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+// @media only screen and (min-width: 1025px) and (max-width: 1200px) {
+//   .navigation_container {
+//     .navigation_item {
+//       .navigation_item_title {
+//         display: none;
+//       }
+//     }
+//   }
+// }
+
+@media only screen and (min-width: 1025px) and (max-width: 1100px) {
   .navigation_container {
     .navigation_item {
       .navigation_item_title {

@@ -1,6 +1,3 @@
-import React from 'react';
-import styles from './subsribe-to-premium.module.scss';
-import CustomButton from '../common-components/custom-button/custom-button';
 import {
   CustomButtonColor,
   CustomButtonSize
@@ -9,6 +6,8 @@ import {
   SUBSCRIBE_TO_PREMIUM_CONTENT,
   SUBSCRIBE_TO_PREMIUM_TITLE
 } from '../../constants/label-contants';
+import CustomButton from '../common-components/custom-button/custom-button';
+import styles from './subsribe-to-premium.module.scss';
 
 const SubscribeToPremium = () => {
   return (
@@ -18,7 +17,7 @@ const SubscribeToPremium = () => {
         {SUBSCRIBE_TO_PREMIUM_CONTENT}
       </div>
       <CustomButton
-        text={'Subscribe'}
+        content={'Subscribe'}
         size={CustomButtonSize.small}
         buttonColor={CustomButtonColor.black}
       />
