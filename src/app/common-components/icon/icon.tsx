@@ -1,46 +1,122 @@
-'use client';
+import React from 'react';
+import PropTypes from 'prop-types';
+import * as iconData from './svg-metadata';
+import styles from './icon.module.scss';
 
-import { FC, useEffect, useState } from 'react';
-import { svgList } from './svg-metadata';
-import { IconObjectType } from '@/app/common-types';
-
-type IconType = {
+type iconProps = {
+  id: string;
+  dataTestId?: string;
+  color: string;
+  size: number;
   name: string;
-  width?: number;
-  height?: number;
-  color?: string;
+  strikeThrough: boolean;
 };
 
-const Icon: FC<IconType> = ({
-  name,
-  width = 24,
-  height = 24,
-  color = 'currentcolor'
-}) => {
-  const [iconObject, setIconObject] = useState<IconObjectType | null>(null);
+/** Constants **/
+const VIEWBOX_DEFAULT = 40;
 
-  useEffect(() => {
-    setIconObject(svgList.find((svg) => svg.name === name) ?? null);
-  }, []);
+/** Icon Component **/
+const Icon = (props: iconProps) => {
+  const { id, color } = props;
+  const size = `${props.size}px`;
+  const sizeStyle = {
+    height: size,
+    width: size
+  };
+
+  const getSvg = (name: string) => {
+    const icon = iconData.iconsByName(name);
+    const strikeThroughIcon = props.strikeThrough
+      ? iconData.iconsByName('strike_through')
+      : null;
+
+    if (icon !== undefined) {
+      const viewHeight = Object.hasOwn(icon, 'viewHeight')
+        ? icon.viewHeight
+        : VIEWBOX_DEFAULT;
+      const viewWidth = Object.hasOwn(icon, 'viewWidth')
+        ? icon.viewWidth
+        : VIEWBOX_DEFAULT;
+
+      const embedColor = Object.hasOwn(icon, 'pathColors');
+
+      return (
+        <svg
+          width={viewWidth}
+          height={viewHeight}
+          viewBox={`0 0 ${viewWidth} ${viewHeight}`}
+          version="1.1"
+          aria-hidden
+          fill="currentColor"
+          focusable={false}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g stroke="none" strokeWidth="1" fillRule="evenodd">
+            {icon.paths.map((path, index) => (
+              <path
+                key={index}
+                d={path}
+                fill={
+                  color.length
+                    ? color
+                    : embedColor
+                    ? icon.pathColors[index]
+                    : 'inherit'
+                }
+              />
+            ))}
+            {strikeThroughIcon && (
+              <path
+                d={strikeThroughIcon.paths[0]}
+                fill={strikeThroughIcon.pathColors[0]}
+              />
+            )}
+          </g>
+        </svg>
+      );
+    } else {
+      return (
+        <div
+          style={{
+            textAlign: 'center',
+            fontSize: '200%'
+          }}
+        >
+          ?
+        </div>
+      );
+    }
+  };
 
   return (
-    <div className="App">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="ionicon"
-        viewBox={`0 0 ${width} ${height}`}
-      >
-        <path
-          d={iconObject?.path}
-          fill={color}
-          stroke={'currentColor'}
-          strokeLinecap={'round'}
-          strokeLinejoin={'round'}
-          strokeWidth={32}
-        />
-      </svg>
+    <div
+      {...(id && { id })}
+      className={styles.icon}
+      data-testid={props.dataTestId}
+    >
+      <div style={sizeStyle} className={`${styles.svg_wrapper}`}>
+        {getSvg(props.name)}
+      </div>
     </div>
   );
 };
 
 export default Icon;
+
+Icon.defaultProps = {
+  name: '',
+  size: 24,
+  color: '',
+  id: '',
+  strikeThrough: false,
+  dataTestId: undefined
+};
+
+Icon.propType = {
+  name: PropTypes.string,
+  size: PropTypes.number,
+  color: PropTypes.string,
+  id: PropTypes.string,
+  strikeThrough: PropTypes.bool,
+  dataTestId: PropTypes.string
+};

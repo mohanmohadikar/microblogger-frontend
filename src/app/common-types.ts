@@ -1,4 +1,7 @@
 export type IconObjectType = {
   name: string;
-  path: string;
+  viewHeight: number;
+  viewWidth: number;
+  paths: string[];
+  pathColors: string[];
 };
